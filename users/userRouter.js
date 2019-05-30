@@ -36,11 +36,14 @@ router.post('/:id/posts', validateUserId, validatePost, async (req, res) => {
 });
 
 router.get('/', (req, res) => {
+  //res.status(200).json({message: "success"})
     Users.get()
   .then(user => {
+  
     res.status(200).json({user})
   })
   .catch(err => {
+    console.log(err)
     res.status(500).json({error: "Users could not be retrieved"})
   })
 });
